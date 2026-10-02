@@ -1,0 +1,15 @@
+#!/bin/sh
+set -eu
+
+debug_options="${APP_DEBUG_JVM_OPTIONS:-${JAVA_TOOL_OPTIONS:-}}"
+
+case " $* " in
+    *" spring-boot:run "*)
+        if [ -n "$debug_options" ]; then
+            exec env -u JAVA_TOOL_OPTIONS /usr/share/maven/bin/mvn \
+                "-Dspring-boot.run.jvmArguments=$debug_options" "$@"
+        fi
+        ;;
+esac
+
+exec env -u JAVA_TOOL_OPTIONS /usr/share/maven/bin/mvn "$@"

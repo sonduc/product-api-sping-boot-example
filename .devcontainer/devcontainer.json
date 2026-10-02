@@ -1,0 +1,19 @@
+{
+  "name": "product-api",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "overrideCommand": false,
+  "remoteEnv": {
+    "JAVA_TOOL_OPTIONS": ""
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode-remote.remote-containers",
+        "vscjava.vscode-java-pack",
+        "vmware.vscode-spring-boot"
+      ]
+    }
+  }
+}

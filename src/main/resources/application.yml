@@ -1,0 +1,32 @@
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 20
+        order_inserts: true
+        order_updates: true
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+jwt:
+  # Development fallback only. Production must set JWT_SECRET.
+  secret: ${JWT_SECRET:cHJvZHVjdC1hcGktZGV2LXNlY3JldC1rZXktMjAyNiEh}
+  expiration: ${JWT_EXPIRATION:3600000}
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
