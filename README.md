@@ -22,9 +22,13 @@ Không dùng database `product-api-postgres` cho integration test.
 
 ## Quick start
 
-1. Mở thư mục `product-api` trong VS Code.
-2. Chọn **Dev Containers: Reopen in Container**. Khi thay đổi Compose, chọn **Rebuild and Reopen in Container**.
-3. Trong terminal devcontainer chạy `mvn spring-boot:run`.
+1. Sao chép cấu hình cổng: `cp .env.example .env`. Nếu cổng host bị chiếm, sửa giá trị tương ứng trong `.env`.
+2. Mở thư mục `product-api` trong VS Code.
+3. Chọn **Dev Containers: Reopen in Container**. Khi thay đổi cổng, chọn **Rebuild and Reopen in Container**.
+4. Trong terminal devcontainer chạy `mvn spring-boot:run`.
+
+Docker Compose đọc `.env` ở thư mục project. File này được Git bỏ qua; `.env.example` là mẫu được lưu trong repo.
+Nếu chưa tạo `.env`, Compose dùng giá trị mặc định trong `docker-compose.yml`.
 
 Từ host có thể chạy `docker compose up -d` trước khi mở devcontainer.
 App container mặc định chạy `sleep infinity`; cần chạy Maven để HTTP server bắt đầu.
@@ -94,36 +98,37 @@ JWT secret là key Base64 (ít nhất 32 byte sau decode); profile prod bắt bu
 POST login -> token -> Authorization: Bearer token -> kiểm tra chữ ký/hết hạn -> role từ DB -> API
 ```
 
-Ví dụ dưới đây chạy trên host; trong devcontainer đổi `8082` thành `8080`:
+Ví dụ dưới đây chạy trên host với `APP_HOST_PORT=18082`; trong devcontainer dùng cổng `8080`.
+Nếu đổi cổng trong `.env`, thay `18082` bằng giá trị mới:
 
 ```sh
-curl -X POST http://localhost:8082/api/auth/login \
+curl -X POST http://localhost:18082/api/auth/login \
   -H 'Content-Type: application/json' \
   -d '{"username":"admin","password":"password"}'
 
-curl 'http://localhost:8082/api/products?sort=price,asc&page=0&size=5' \
+curl 'http://localhost:18082/api/products?sort=price,asc&page=0&size=5' \
   -H 'Authorization: Bearer <token>'
 
-curl -i http://localhost:8082/api/products
+curl -i http://localhost:18082/api/products
 ```
 
 Không ghi token/password vào log hoặc commit token vào repo. Account seed chỉ phục vụ local development.
 
 ## Port mapping
 
-| Service | Host | Container |
-| --- | --- | --- |
-| App HTTP | 8082 | 8080 |
-| Debug | 5005 | 5005 |
-| PostgreSQL | 5433 | 5432 |
-| Adminer | 8081 | 8080 |
+| Service | Biến trong `.env` | Host mặc định | Container |
+| --- | --- | --- | --- |
+| App HTTP | `APP_HOST_PORT` | 18082 | 8080 |
+| Debug | `DEBUG_HOST_PORT` | 5005 | 5005 |
+| PostgreSQL | `POSTGRES_HOST_PORT` | 5433 | 5432 |
+| Adminer | `ADMINER_HOST_PORT` | 8081 | 8080 |
 
 Host 8080 và 5432 đã có các service `vcx-*` sử dụng. Compose giữ ba tên cố định
 `product-api-dev`, `product-api-postgres`, `product-api-adminer`. Datasource nội bộ là
-`jdbc:postgresql://postgres:5432/productdb`, không dùng host port 5433.
+`jdbc:postgresql://postgres:5432/productdb`, không dùng host port của PostgreSQL.
 
-- App: http://localhost:8082
-- Health: http://localhost:8082/actuator/health
+- App: http://localhost:18082
+- Health: http://localhost:18082/actuator/health
 - Adminer: http://localhost:8081 (server postgres, DB productdb, user/password product/product)
 - Debug: localhost:5005, chọn launch configuration **Attach to product-api-dev**.
 
@@ -158,8 +163,8 @@ open target/site/jacoco/index.html
 
 ## Troubleshooting
 
-- **Port conflict:** trên macOS dùng `lsof -nP -iTCP -sTCP:LISTEN`; kiểm tra port 8082/8081/5433/5005.
-  Không dừng `vcx-*`; đổi host mapping nếu cần và giữ datasource nội bộ postgres:5432.
+- **Port conflict:** trên macOS dùng `lsof -nP -iTCP -sTCP:LISTEN`; kiểm tra các cổng host trong `.env`.
+  Đổi giá trị trong `.env`, rồi **Rebuild and Reopen in Container**; giữ datasource nội bộ postgres:5432.
 - **Container cũ trùng tên:** `docker ps -a --filter name=product-api`; xác nhận thuộc project này trước khi xử lý.
   Dùng `docker compose down` từ đúng project để dừng/gỡ các container của project, giữ volume DB.
 - **Reset DB dev:** `docker compose down -v` xóa dữ liệu productdb của project; rồi `docker compose up -d`
@@ -194,8 +199,9 @@ role, hết hạn, hết lượt, code trùng và concurrent apply. Gợi ý: d�
 ## Liên kết với product-app (Nuxt FE)
 
 Nuxt dev chạy tại http://localhost:3000, đã có CORS cho origin này. Base URL browser là
-http://localhost:8082; nếu Nuxt server chạy trong container riêng, localhost là container Nuxt và cần địa chỉ
-host.docker.internal:8082 hoặc network/service URL tương ứng. FE đăng nhập, giữ token theo chiến lược của FE,
+http://localhost:18082 (hoặc `APP_HOST_PORT` trong `.env`); nếu Nuxt server chạy trong container riêng,
+localhost là container Nuxt và cần địa chỉ host.docker.internal:18082 (thay cổng theo `.env`)
+hoặc network/service URL tương ứng. FE đăng nhập, giữ token theo chiến lược của FE,
 gửi Authorization Bearer, xử lý 401/403/409, và đọc content/page/size/totalElements/totalPages cho list.
 Project này chưa chỉnh sửa frontend.
 

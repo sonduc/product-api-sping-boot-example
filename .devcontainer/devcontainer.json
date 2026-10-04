@@ -13,7 +13,12 @@
         "ms-vscode-remote.remote-containers",
         "vscjava.vscode-java-pack",
         "vmware.vscode-spring-boot"
-      ]
+      ],
+      "settings": {
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "java.autobuild.enabled": true,
+        "java.debug.settings.hotCodeReplace": "auto"
+      }
     }
   }
 }
