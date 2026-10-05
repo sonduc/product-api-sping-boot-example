@@ -123,7 +123,7 @@ Không ghi token/password vào log hoặc commit token vào repo. Account seed c
 | PostgreSQL | `POSTGRES_HOST_PORT` | 5433 | 5432 |
 | Adminer | `ADMINER_HOST_PORT` | 8081 | 8080 |
 
-Host 8080 và 5432 đã có các service `vcx-*` sử dụng. Compose giữ ba tên cố định
+Host 8080 và 5432 đã có các service khác sử dụng. Compose giữ ba tên cố định
 `product-api-dev`, `product-api-postgres`, `product-api-adminer`. Datasource nội bộ là
 `jdbc:postgresql://postgres:5432/productdb`, không dùng host port của PostgreSQL.
 

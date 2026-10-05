@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ProductApiApplication",
+      "request": "launch",
+      "mainClass": "com.example.productapi.ProductApiApplication",
+      "projectName": "product-api"
+    },
+    {
+      "type": "java",
       "name": "Attach to product-api-dev",
       "request": "attach",
       "hostName": "localhost",
