@@ -1,6 +1,9 @@
-target/
+*.iml
+*.log
+.DS_Store
 .classpath
+.env
+.idea/
 .project
 .settings/
-.DS_Store
-.env
+target/
