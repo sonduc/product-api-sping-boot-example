@@ -40,7 +40,7 @@ For a coding handoff, give the behavior, relevant conventions, affected paths, d
 
 ## Keep investigation separate from changes
 
-Return the result in chat by default. Do not create a project profile, onboarding docs, plans, or changes to code or `AGENTS.md` merely because context was gathered. Writing requires a user request and an approved plan covering the files, content, and verification.
+Return the result in chat by default. Do not create a project profile, onboarding docs, saved plans, or changes to code or `AGENTS.md` merely because context was gathered. Before writing, present a plan covering files, content, and verification; proceed when the current request or still-applicable approval covers it, otherwise obtain approval. Do not ask again on a skill/step change. Investigation alone grants no edits, and a historical profile is not new permission.
 
 For a requested profile, use the project's existing format or an available approved template; agree on the destination in the plan. Preserve links to existing docs rather than copying them. Save only evidence-supported facts and clearly marked unknowns.
 

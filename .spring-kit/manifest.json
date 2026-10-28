@@ -1,17 +1,18 @@
 {
-  "block_sha256": "4790bdd9d86ba61a7849ef72c240502ec8514807905d7e9ba890fefec433c0cd",
-  "digest": "60c7778a78d74697de08ebd46f0f07db45a50cffca1bc54c565666f0fe8e0e3a",
+  "block_sha256": "bfd7f975d708809967fa44cb05eaae5932e57ec30f71264b0cca8085d999cfe1",
+  "digest": "85a1a42552825e0b775912ba820a728caf712f6d292f6b5a6defe791b0c24b4f",
   "files": {
-    ".agents/skills/spring-code/SKILL.md": "8eda36fbecf6747d8d0c9599343a31afd471c4457081051beb92d848774f642b",
-    ".agents/skills/spring-context/SKILL.md": "84cb033d1dc80aefd8c166a6794e8a6be2124b35b1386557f24d6f91896fffcf",
+    ".agents/skills/spring-code/SKILL.md": "d77fdbddc199abe29e9ecb9166b8c6f4be5191ea743db09c95efe98778c4f93a",
+    ".agents/skills/spring-context/SKILL.md": "d6ab421766ec84254bf9d4b964e694f796bd20ce3cfa22bdc36802b8428caefa",
     ".agents/skills/spring-context/references/onboarding.md": "57b151ddd6fa774a933067f26102ff22e4974b5e1a10d82c5ec156e55975b4db",
-    ".agents/skills/spring-docs/SKILL.md": "efdf07d08ac3c41c106b63d197afa285e76388c6e475e6b81f3768c8893f7ae6",
-    ".agents/skills/spring-review/SKILL.md": "d890d4efeae3dd33232b1aff8d27de68c738a90c59ccf8df9e522056236530ce",
-    ".agents/skills/spring-verify/SKILL.md": "4cf9160aa94da24c579a69ccdafd83f6d6105c4b02fb8788c5583d09dc170c67",
-    ".spring-kit/templates/project-profile.md": "6507d9b4df47c21238786c265d583cb13c10fda812aec590c6f8ece0b7d5f0bb"
+    ".agents/skills/spring-docs/SKILL.md": "0bf7da82cd1da1cb75f1c272248eca7169cb595d991c52284b7c2290d4334884",
+    ".agents/skills/spring-docs/references/snapshot-metadata.md": "7b88229a8a4a8d091a64ba8b1092b67263b49751f887dccf4c4e4e736c1ec1d9",
+    ".agents/skills/spring-review/SKILL.md": "c4424e985433d380dc3c5cea4c6808b46fae51b859e8bf8bff2ef9467c3a07db",
+    ".agents/skills/spring-verify/SKILL.md": "2eee234dbfa18fc90739b7403991baf8b77964bb7937f056cfdb19b7b9eff4d6",
+    ".spring-kit/templates/project-profile.md": "9f21fc9c4041a9bc5e0c26a52bf7b9838bb9987f4ea992deee735b6f940ff24f"
   },
   "instructions": "AGENTS.md",
   "kit": "codex-java-spring-kit",
   "schema": 1,
-  "version": "0.1.0"
+  "version": "0.2.0"
 }

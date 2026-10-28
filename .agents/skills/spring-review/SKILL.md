@@ -34,6 +34,6 @@ Do not require a minimum number of findings or questions. If no actionable findi
 
 ## Handle corrections within scope
 
-A standalone review returns findings in chat; it does not authorize code fixes, saved reports, documentation, or instruction changes. During an approved coding workflow, return findings for correction within that plan's files, behavior, and checks, then re-review the affected diff. Stop the affected work and obtain an updated plan for new effects outside its scope. Do not request repeat approval for corrections already covered.
+A review-only request returns findings in chat; it does not itself authorize code fixes, saved reports, documentation, or instruction changes. Retain any still-applicable edit/check authority from the current request or approved plan; switching to review does not revoke it. When an approved coding plan or explicit task-completion grant covers a finding, correct it through that workflow, rerun affected checks, and re-review without repeat approval. Stop only affected work outside that grant, propose the additional changes/checks and missing permission, and wait for that part. A profile or historical review record does not supply new authority.
 
 Finish with findings or their absence, actual review/verification coverage and gaps, the next useful check and expected result, remaining work, and the user's next step. Do not edit docs to reconcile a business/code disagreement or commit/push merely because review is complete.
