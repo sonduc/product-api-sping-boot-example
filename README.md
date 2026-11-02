@@ -2,6 +2,12 @@
 
 Backend quản lý sản phẩm cho frontend Nuxt `product-app`. API sử dụng DTO, JWT và phân quyền ADMIN/USER.
 
+Tài liệu onboarding (EN): [Controller overview](docs/controller-onboarding.md),
+[Product](docs/product-controller.md) và [Auth](docs/auth-controller.md).
+
+Tài liệu onboarding (VI): [Tổng quan controller](docs/controller-onboarding.vi.md),
+[Product](docs/product-controller.vi.md) và [Auth](docs/auth-controller.vi.md).
+
 ## Stack
 
 - Java 21, Maven 3.9, Spring Boot 3.3.13.
