@@ -1,0 +1,45 @@
+---
+name: spring-code
+description: Plan and implement Java/Spring features or bug fixes using project conventions, then coordinate tests and review against approved acceptance criteria. Use for requested code changes; explanation, standalone verification, review, and documentation work have separate scopes.
+---
+
+# Spring Code
+
+Turn a requested behavior into a reviewed change within one approved plan. Follow applicable project instructions and retain the project's stack, architecture, conventions, and test practices. This skill organizes work; selecting it grants no additional permissions.
+
+## Establish the change
+
+1. Identify the desired behavior, acceptance criteria, and affected area. For a bug, separate the observed behavior from the intended behavior and distinguish inspected evidence from a reproduced failure.
+2. Inspect the relevant instructions, current Git state, nearby code, tests, and build/CI configuration. Preserve existing user changes. Use [spring-context](../spring-context/SKILL.md), when available, for scoped investigation; otherwise gather the same evidence directly. Do not require full onboarding or a saved profile.
+3. Resolve business or architecture choices that affect implementation before proposing edits. Investigate only within the assigned scope, explain the consequential options, and wait for the user's decision. Missing facts that do not affect the change can remain explicit unknowns.
+
+## Plan and obtain approval
+
+Before editing, present the scope, intended behavior, affected files, and verification. Keep a small, clear fix to a short plan. For a larger, defined feature, split the plan into tasks with dependencies and acceptance criteria. Keep plans/tasks in chat unless saving them is requested and authorized.
+
+First identify what the current request and still-applicable explicit approvals authorize, with their exclusions and execution limits. If the user has already authorized the plan or completion of this task, present the plan and proceed within that grant. Do not ask again merely because a file, workflow step, or skill changes. A historical profile or completed task is evidence to reconcile, not a new grant.
+
+Include the relevant unit tests, integration tests, and review, with commands and prerequisites supported by the project. Explain any unavailable or unnecessary check. Do not assume Maven, Gradle, Docker, a coverage threshold, or a new testing library. Use [spring-verify](../spring-verify/SKILL.md), when available, to prepare checks, and [spring-review](../spring-review/SKILL.md) for review. These are workflows for the current agent, not requests to spawn agents.
+
+Apply the project's approval rules to these four cases:
+
+| Situation | Required action |
+| --- | --- |
+| Small change with clear requirements | Present a short file/change/check plan; wait only if current authorization does not cover it. |
+| Large feature with clear requirements | Present tasks, dependencies, files, and checks; proceed if covered, otherwise obtain approval. |
+| Open business or architecture choice | Present evidence/options and wait for the consequential decision; then check whether the resulting edit plan is authorized. |
+| New effects outside the authorization | Stop the affected work, explain the impact, and obtain approval for an updated plan before expanding. |
+
+One plan approval covers its changes, relevant checks/review, and corrections within that scope. Explicit task-completion authority may also cover necessary related files, findings, and checks serving the same outcome, subject to the user's limits. Announce material plan adjustments within that grant and continue without repeat approval. Do not assume such authority from a generic investigation, plan, or review request.
+
+When new effects exceed the grant, explain why the current scope cannot meet the requirement, then present an updated plan identifying the additional files/scope, intended changes, and verification, with any execution limits. Explicitly identify only the new approval needed and wait before editing the affected area; independent authorized work may continue. If a consequential business or architecture choice prevents a concrete plan, state the options and the decision needed first; do not silently choose it or present an unresolved choice as an approved change.
+
+## Implement and close the loop
+
+- Make the approved changes using existing patterns and actual Java/Spring versions. Do not introduce unrelated refactors, dependency upgrades, libraries, or architecture changes.
+- Add or update tests that demonstrate the approved behavior and relevant regressions. Choose unit and integration coverage by the changed boundaries; tests should assert outcomes, not merely mirror the implementation. A check passing is evidence only for the behavior it exercises.
+- Run the approved verification and review the resulting diff. If the companion skills are unavailable, perform those steps directly using the project's checks and evidence-based review. Do not skip them silently.
+- Correct failures and findings covered by the authorized plan or task, then rerun affected checks and re-review. Do not stop at findings or request repeat approval for covered corrections. Obtain approval only for effects outside that grant. Survey prerequisites and group missing setup/permissions before dependent execution. Task authorization does not bypass sandbox approval; missing infrastructure is not permission to change setup or weaken assertions.
+- Coding does not trigger documentation work. Report documentation impact for the user to decide; editing docs, project profiles, or agent instructions requires an explicit request and an approved plan. Commit/push also require explicit authorization.
+
+Finish with the behavior changed, affected files, acceptance results, actual checks/review and remaining findings or gaps. State what can be tried and its expected outcome, remaining work, and the user's next step. Do not claim completion of an unmet or unverified acceptance criterion.
