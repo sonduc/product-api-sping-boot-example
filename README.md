@@ -2,6 +2,19 @@
 
 Backend quản lý sản phẩm cho frontend Nuxt `product-app`. API sử dụng DTO, JWT và phân quyền ADMIN/USER.
 
+## Tài liệu Product
+
+Bộ tài liệu có cấu trúc cho năm API của `ProductController` và các phụ thuộc trực tiếp:
+
+- [Mục lục và thứ tự đọc](docs/README.md).
+- [Tổng quan Product](docs/modules/product/OVERVIEW.md): trách nhiệm, thành phần và quan hệ giữa các lớp.
+- [API Product](docs/modules/product/api.md): endpoint, quyền truy cập, request/response, lỗi và ví dụ curl.
+- [Mô hình dữ liệu](docs/modules/product/data-model.md): entity, DTO, schema và optimistic locking.
+- Luồng xử lý: [danh sách](docs/modules/product/features/list-products.md), [chi tiết](docs/modules/product/features/get-product.md), [tạo](docs/modules/product/features/create-product.md), [sửa](docs/modules/product/features/update-product.md), [xóa](docs/modules/product/features/delete-product.md).
+
+Các trang ghi rõ snapshot mã nguồn và giới hạn đối chiếu; chúng chưa xác nhận hành vi runtime.
+README này là nguồn hướng dẫn setup, chạy ứng dụng và kiểm tra project.
+
 ## Stack
 
 - Java 21, Maven 3.9, Spring Boot 3.3.13.
