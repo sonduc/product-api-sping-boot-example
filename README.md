@@ -4,11 +4,16 @@ Backend quản lý sản phẩm cho frontend Nuxt `product-app`. API sử dụng
 
 ## Stack
 
-- Java 21, Maven 3.9, Spring Boot 3.3.13.
+- Java 21, Maven 3.9, Spring Boot 3.3.13. [Khai báo Maven](pom.xml), [image devcontainer](.devcontainer/Dockerfile).
 - Spring Web, Security, Validation, Data JPA và Actuator.
-- PostgreSQL 16, Flyway V1–V4, optimistic locking.
+- PostgreSQL 16, Flyway V1–V4, optimistic locking. [Docker Compose](docker-compose.yml), [migrations](src/main/resources/db/migration).
 - JWT (JJWT), BCrypt, cache DTO trong bộ nhớ.
 - JUnit 5, Mockito, H2 cho repository test, Testcontainers PostgreSQL cho integration test, JaCoCo.
+
+## Bắt đầu
+
+- [Chạy ứng dụng](#quick-start), [kiến trúc](#kiến-trúc) và [kiểm thử](#test).
+- [Bản đồ tài liệu](docs/README.md) và [hướng dẫn cho agent](AGENTS.md).
 
 ## Yêu cầu
 
