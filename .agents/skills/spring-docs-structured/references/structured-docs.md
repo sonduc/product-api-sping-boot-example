@@ -23,13 +23,9 @@ reuse a sufficient existing file or report the missing scope before dependent wo
 Complete/reuse this context before writing business docs. Survey the assigned behavior
 deeply only after that; a narrow controller request does not authorize whole-module docs.
 
-## Select templates, not an obligatory file tree
+## Account for every template path
 
-Templates are output assets, not instructions to load together. Read only the chosen
-templates; replace or omit placeholders using actual project evidence. The English
-template wording does not change [language rules](evidence-and-language.md).
-
-Shared documents, created only when useful and authorized:
+Inventory every template for the project and assigned modules before previewing. Use the mandatory paths and empty-file rules in SKILL.md. Shared pages can point to existing material.
 
 | Template | Responsibility |
 |---|---|
@@ -40,7 +36,7 @@ Shared documents, created only when useful and authorized:
 | [Development](../assets/templates/docs/DEVELOPMENT.md) | Prerequisites, configuration, initialization, run/stop and expected signals |
 | [Testing](../assets/templates/docs/TESTING.md) | Project-wide checks and links to module testing guides |
 
-Retain existing paths rather than forcing uppercase names. Stack versions must come from
+Preserve existing destinations alongside the canonical paths. Stack versions must come from
 build/config/wrappers; distinguish declared/resolved/local versions and unknowns. Do not
 list every library or run dependency resolution merely to populate a table.
 
@@ -70,11 +66,7 @@ for the code layout, component responsibilities and an end-to-end processing flo
 Use the content needed for the request as the criterion, even when the entry point
 is a controller or feature. Reuse adequate sections or pages and link to them.
 For a small gap, propose filling it in place and update only within the grant.
-When the project-level map is needed and the existing material does not cover it,
-propose `docs/ARCHITECTURE.md` and state the gap in the preview. Create it under
-the current grant when it covers new shared documentation, even if the prompt did
-not name the file. If the user explicitly requests the page, honor that request
-within scope and link to existing detail where it helps.
+Always include docs/ARCHITECTURE.md and link to relevant README sections.
 
 Build a short tree and location/responsibility/example table from the actual code.
 Choose a representative flow to show its entry point, components, dependency
@@ -95,10 +87,7 @@ the project's established location or use a short evidence note in this page.
 Check relevant contribution guides, README sections and existing coding docs.
 Reuse and link adequate conventions at their current paths. For a small gap,
 propose an in-place update within the grant only for a missing established rule.
-Cover new feature behavior in the feature page. If useful conventions lack a
-suitable home, include `docs/CODING_RULES.md` in the structured preview and create
-it when the grant covers new shared docs, even if the prompt did not name the file.
-Honor an explicit page request within scope and link to existing detail where helpful.
+Include docs/CODING_RULES.md and link to existing conventions where useful.
 
 Use naming, errors, APIs, data, security, cache and background work as survey
 topics. Keep actionable rules supported by explicit guidance, a shared mechanism,
@@ -114,10 +103,7 @@ can be verified, report the evidence gap in the preview.
 
 ### Plan and write local development onboarding
 
-Include local onboarding in the structured preview even when the business scope starts
-at a controller. Reuse a dedicated guide if adequate, propose updating it in place if
-incomplete, or propose `docs/DEVELOPMENT.md` if none exists. Create/update only within the
-grant. If README is in scope, link to the guide from Start here. Disclose any proposed
+Include docs/DEVELOPMENT.md even when setup is already documented. Link to the maintained instructions. Disclose any proposed
 move of existing setup text and keep one maintained procedure when that move is in scope.
 
 Consolidate README, existing docs, container configuration, samples and scripts into an
@@ -141,8 +127,7 @@ commands, CI entry points and tests relevant to the assigned behavior. Include u
 testing pages in the preview even when the prompt names only a controller or feature.
 Keep adequate guides unchanged and link to their existing paths. A guide is
 adequate when it already tells readers how to verify the assigned behavior at the
-available test level. Fill material gaps in place when authorized. Create a guide
-when useful content lacks a suitable home and the grant covers it.
+available test level. Fill material gaps in place when authorized. Include both project and module TESTING.md in the tree.
 
 - **Project guide.** Briefly state shared commands or link to existing instructions,
   with shared prerequisites and one link per documented module. Keep module commands,
@@ -186,7 +171,7 @@ Use templates under `docs/modules/_module/` (rename `_module`, `_feature`, `_ver
 | [Events map](../assets/templates/docs/modules/_module/events/README.md) / [listener](../assets/templates/docs/modules/_module/events/listeners/_verb.md) | Published/received events and individual listener behavior |
 | [RabbitMQ map](../assets/templates/docs/modules/_module/rabbitmq/README.md) / [consumer](../assets/templates/docs/modules/_module/rabbitmq/consumers/_verb.md) | Message topology and individual consumer behavior |
 
-Do not create empty job/event/RabbitMQ docs. Do not create a modules-level OVERVIEW,
+Keep every unused slot as an empty file with its original template name. Do not create a modules-level OVERVIEW,
 module-root README, separate flows directory, or default SRS. No forced EN/VI pairs,
 onboarding/Postman/DOCX or other deferred deliverables.
 
@@ -206,7 +191,7 @@ Material claims need nearby path/line plus symbol/config evidence from the selec
 ## Review
 
 Check the generated navigation, source references and diagram steps against the assigned
-scope. Remove placeholders and links to omitted files. Check AGENTS links point to the
+scope. Check unused slot files are empty and replaced placeholders are accounted for. Check AGENTS links point to the
 actual project paths. Resolve relative test links from the module guide's own directory.
 Record checks/limits truthfully; TESTING describes how to verify,
 not a fabricated passing run. Recheck source bytes for concurrent edits before handoff.
